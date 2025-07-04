@@ -1,68 +1,77 @@
+/* === Global Styles === */
 body {
-  font-family: Arial, sans-serif;
-  /* font-family: 'Segoe UI', sans-serif; */
-  margin: 2em;
-  /* margin: 0;
-  padding: 0; */
-  background: #f4f4f4;
-  /* background: #f9f9f9; */
-  color: #333;
+  font-family: Arial, sans-serif; /* Sets the default font for the page */
+  /* Alternative font option: 'Segoe UI', sans-serif */
+  margin: 2em; /* Adds space around the body content */
+  /* margin: 0; padding: 0; */ /* Uncomment to remove all spacing */
+  background: #f4f4f4; /* Light gray background for the page */
+  /* background: #f9f9f9; */ /* Slightly lighter alternative */
+  color: #333; /* Dark gray text for readability */
 }
 
+/* === Header Section === */
 header {
-  background-color: #007acc;
-  color: white;
-  padding: 2rem 1rem;
-  text-align: center;
+  background-color: #007acc; /* Blue background for the header */
+  color: white; /* White text inside the header */
+  padding: 2rem 1rem; /* Top/bottom: 2rem, Left/right: 1rem */
+  text-align: center; /* Center-aligns the header content */
 }
 
+/* === Main Heading === */
 h1 {
-  color: #007acc;
-  margin: 0 0 0.5rem;
-  font-size: 2.5rem;
+  color: #007acc; /* Matches the header background for consistency */
+  margin: 0 0 0.5rem; /* Bottom margin for spacing */
+  font-size: 2.5rem; /* Large font size for emphasis */
 }
 
+/* === Links === */
 a {
-  color: #007acc;
-  text-decoration: none;
+  color: #007acc; /* Blue links */
+  text-decoration: none; /* Removes underline by default */
 }
 
 a:hover {
-  text-decoration: underline;
+  text-decoration: underline; /* Adds underline on hover for interactivity */
 }
 
+/* === Subtitle Paragraph === */
 p.subtitle {
-  font-size: 1.1rem;
-  margin: 0;
-  color: #e0e0e0;
+  font-size: 1.1rem; /* Slightly larger than normal text */
+  margin: 0; /* No margin */
+  color: #cccccc; /* Light gray text, likely used in header */
 }
 
+/* === Main Content Area === */
 main {
-  padding: 2rem 1rem;
-  max-width: 800px;
-  margin: auto;
+  padding: 2rem 1rem; /* Adds spacing inside the main content */
+  max-width: 800px; /* Limits the width for better readability */
+  margin: auto; /* Centers the main content horizontally */
 }
 
+/* === Section Blocks === */
 .section {
-  background: white;
-  padding: 1.5rem;
-  margin-bottom: 1.5rem;
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  background: white; /* White background for contrast */
+  padding: 1.5rem; /* Internal spacing */
+  margin-bottom: 1.5rem; /* Space between sections */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Subtle shadow for depth */
 }
 
+/* === Section Headings === */
 .section h2 {
-  color: #007acc;
-  margin-top: 0;
+  color: #007acc; /* Blue headings for consistency */
+  margin-top: 0; /* Removes default top margin */
 }
 
+/* === Unordered Lists === */
 ul {
-  padding-left: 1.2rem;
+  padding-left: 1.2rem; /* Indents list items */
 }
 
+/* === Footer === */
 footer {
-  text-align: center;
-  padding: 1rem;
-  font-size: 0.9rem;
-  color: #666;
+  text-align: center; /* Centers footer text */
+  padding: 1rem; /* Adds spacing */
+  font-size: 0.9rem; /* Slightly smaller text */
+  color: #666; /* Medium gray for less emphasis */
 }
