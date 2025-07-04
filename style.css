@@ -19,7 +19,6 @@ header {
 
 /* === Main Heading === */
 h1 {
-  color: white; /* Matches the header background for consistency */
   margin: 0 0 0.5rem; /* Bottom margin for spacing */
   font-size: 2.5rem; /* Large font size for emphasis */
 }
