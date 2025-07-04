@@ -9,17 +9,17 @@ body {
   color: #333;
 }
 
-/* header {
+header {
   background-color: #007acc;
   color: white;
   padding: 2rem 1rem;
   text-align: center;
-} */
+}
 
 h1 {
   color: #007acc;
-  /* margin: 0 0 0.5rem;
-  font-size: 2.5rem; */
+  margin: 0 0 0.5rem;
+  font-size: 2.5rem;
 }
 
 a {
@@ -31,38 +31,38 @@ a:hover {
   text-decoration: underline;
 }
 
-/*    p.subtitle {
-      font-size: 1.1rem;
-      margin: 0;
-      color: #e0e0e0;
-    }
+p.subtitle {
+  font-size: 1.1rem;
+  margin: 0;
+  color: #e0e0e0;
+}
 
-    main {
-      padding: 2rem 1rem;
-      max-width: 800px;
-      margin: auto;
-    }
+main {
+  padding: 2rem 1rem;
+  max-width: 800px;
+  margin: auto;
+}
 
-    .section {
-      background: white;
-      padding: 1.5rem;
-      margin-bottom: 1.5rem;
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
+.section {
+  background: white;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
 
-    .section h2 {
-      color: #007acc;
-      margin-top: 0;
-    }
+.section h2 {
+  color: #007acc;
+  margin-top: 0;
+}
 
-    ul {
-      padding-left: 1.2rem;
-    }
+ul {
+  padding-left: 1.2rem;
+}
 
-    footer {
-      text-align: center;
-      padding: 1rem;
-      font-size: 0.9rem;
-      color: #666;
-    } */
+footer {
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+  color: #666;
+}
