@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pradeep's Knowledge Hub</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+  <link rel="manifest" href="images/site.webmanifest">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  
+  <header>
+    <h1>Pradeep's Knowledge Hub</h1>
+    <p class="subtitle">Curated notes on tech, health, and life — in one place.</p>
+  </header>
+
+  <!-- Main Content Area -->
+  <main>
+<div style="display: flex;">
+  <!-- Sidebar Navigation -->
+  <nav style="width: 200px; padding-right: 2rem;">
+    <ul>
+      <li><a href="#plan">🔹 Plan</a></li>
+      <li><a href="#develop">🔹 Develop</a></li>
+      <li><a href="#build">🔹 Build</a></li>
+      <li><a href="#test">🔹 Test</a></li>
+      <li><a href="#release">🔹 Release</a></li>
+      <li><a href="#deploy">🔹 Deploy</a></li>
+      <li><a href="#operate">🔹 Operate</a></li>
+      <li><a href="#monitor">🔹 Monitor</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Content Area -->
+  <main>
+    <details class="section" id="intro" open>
+      <summary><h2>❓ What is DevOps?</h2></summary>
+      <p><strong>DevOps</strong> is a cultural and technical movement that blends <strong>Development (Dev)</strong> and <strong>Operations (Ops)</strong> teams to work collaboratively throughout the software development lifecycle.</p>
+      <ul>
+        <li>It aims to reduce silos between teams</li>
+        <li>Automates the process of software delivery</li>
+        <li>Enables faster, more reliable deployments</li>
+      </ul>
+      <p><strong>DevOps = People + Process + Tools</strong> working together to build better software faster.</p>
+    </details>
+
+    <details class="section">
+      <summary><h2>❓ Why DevOps?</h2></summary>
+      <ul>
+        <li>🚀 Faster time to market for new features</li>
+        <li>✅ Improved quality through continuous testing and feedback</li>
+        <li>🔁 Continuous delivery and integration for smoother releases</li>
+        <li>🤝 Better collaboration between Dev, QA, and Ops teams</li>
+        <li>📉 Reduced manual errors through automation</li>
+      </ul>
+      <p>DevOps brings <strong>speed, stability, and security</strong> to modern software development.</p>
+    </details>
+
+    <details class="section" id="plan" open>
+      <summary><h2>🔹 1. Plan</h2></summary>
+      <p><strong>Plan:</strong><br>This is where it starts. But more than tools, this is about <strong>setting clarity</strong>.<br><em>What are we building, and why?</em></p>
+      <h3>🎯 Goal:</h3>
+      <ul>
+        <li>Define what needs to be built</li>
+        <li>Set business goals, technical expectations, and timelines</li>
+        <li>Collaborate across teams — Dev, QA, Ops, Product</li>
+      </ul>
+      <h3>🛠️ Activities:</h3>
+      <ul>
+        <li>Collect business requirements</li>
+        <li>Set project scope and goals</li>
+        <li>Break work into epics and stories</li>
+        <li>Prioritize the backlog</li>
+        <li>Define release/sprint roadmap</li>
+      </ul>
+      <h3>🔧 Tools:</h3>
+      <ul>
+        <li><strong>JIRA</strong> – Agile boards, backlog tracking, sprint planning</li>
+        <li><strong>Trello</strong> – Simple, visual Kanban-style task management</li>
+        <li><strong>Azure Boards</strong> – Integrated into Microsoft DevOps ecosystem</li>
+        <li><strong>Confluence</strong> – For documentation and knowledge sharing</li>
+      </ul>
+      <p><em>Agile methodologies: Scrum, Kanban, Scrumban</em></p>
+      <h3>📤 Output:</h3>
+      <ul>
+        <li>Product backlog</li>
+        <li>Sprint plan</li>
+        <li>Defined epics, user stories, and tasks</li>
+      </ul>
+      <p><strong>🧠 Bottom Line:</strong><br>Good planning prevents bad delivery. This phase lays the <strong>foundation</strong> for everything that follows.</p>
+    </details>
+
+    <details class="section" id="develop">
+      <summary><h2>🔹 2. Develop</h2></summary>
+      <p><strong>Develop:</strong><br>This is the <strong>engine room</strong> of DevOps. Code gets written, reviewed, and committed here.<br><em>It’s not just about coding—it’s about collaboration, structure, and consistency.</em></p>
+      <h3>🎯 Goal:</h3>
+      <ul>
+        <li>Translate planned features into working code</li>
+        <li>Follow coding standards and practices</li>
+        <li>Enable collaboration through branching, reviews, and version control</li>
+      </ul>
+      <h3>🛠️ Activities:</h3>
+      <ul>
+        <li>Pick tasks from the backlog</li>
+        <li>Create feature branches</li>
+        <li>Write and test code locally</li>
+        <li>Push commits regularly</li>
+        <li>Review code via pull/merge requests</li>
+        <li>Resolve conflicts and merge to main branch</li>
+      </ul>
+      <h3>🔧 Tools:</h3>
+      <ul>
+        <li><strong>Git</strong> – Version control system</li>
+        <li><strong>GitHub / GitLab / Bitbucket</strong> – Cloud platforms for repo hosting & collaboration</li>
+        <li><strong>VS Code / IntelliJ / Eclipse</strong> – Common IDEs</li>
+        <li><strong>Prettier / ESLint / Black</strong> – Code formatters and linters</li>
+      </ul>
+      <p><em>Best practices: Use Git Flow, feature branches, and peer reviews</em></p>
+      <h3>📤 Output:</h3>
+      <ul>
+        <li>Clean, tested source code</li>
+        <li>Committed to version control</li>
+        <li>Merge requests with reviewer approvals</li>
+      </ul>
+      <p><strong>🧠 Bottom Line:</strong><br>Code is the core—but <strong>consistency, collaboration, and reviews</strong> make it scalable and reliable.</p>
+    </details>
+
+    <details class="section" id="build">
+  <summary><h2>🔹 3. Build</h2></summary>
+  <p><strong>Build:</strong><br>This is the stage where source code is transformed into executable packages.<br><em>It ensures that all dependencies are correctly managed and builds are consistent.</em></p>
+  <h3>🎯 Goal:</h3>
+  <ul>
+    <li>Compile code and package it</li>
+    <li>Catch build-time issues early</li>
+    <li>Generate artifacts (JARs, WARs, Docker images, etc.)</li>
+  </ul>
+  <h3>🛠️ Activities:</h3>
+  <ul>
+    <li>Run build automation scripts</li>
+    <li>Package code with dependencies</li>
+    <li>Store artifacts in repositories</li>
+  </ul>
+  <h3>🔧 Tools:</h3>
+  <ul>
+    <li><strong>Maven / Gradle</strong> – Build automation for Java projects</li>
+    <li><strong>npm / yarn</strong> – For Node.js/JS projects</li>
+    <li><strong>Docker</strong> – Containerize applications</li>
+    <li><strong>Jenkins / GitHub Actions</strong> – Automate the build pipelines</li>
+  </ul>
+  <h3>📤 Output:</h3>
+  <ul>
+    <li>Build artifacts</li>
+    <li>Docker images</li>
+    <li>Stored builds in artifact repository</li>
+  </ul>
+  <p><strong>🧠 Bottom Line:</strong><br>Reliable builds are critical to repeatable deployments. Automation ensures consistency and reduces manual errors.</p>
+</details>
+
+<details class="section" id="test">
+  <summary><h2>🔹 4. Test</h2></summary>
+  <p><strong>Test:</strong><br>This stage ensures code quality, security, and performance before it moves to production.<br><em>Automated testing is the safety net for fast development.</em></p>
+  <h3>🎯 Goal:</h3>
+  <ul>
+    <li>Detect bugs early</li>
+    <li>Ensure application meets requirements</li>
+    <li>Maintain high code quality</li>
+  </ul>
+  <h3>🛠️ Activities:</h3>
+  <ul>
+    <li>Run unit and integration tests</li>
+    <li>Automated UI/API testing</li>
+    <li>Apply quality gates and static analysis</li>
+  </ul>
+  <h3>🔧 Tools:</h3>
+  <ul>
+    <li><strong>JUnit / TestNG</strong> – Unit testing (Java)</li>
+    <li><strong>Selenium / Cypress</strong> – UI testing</li>
+    <li><strong>Postman</strong> – API testing</li>
+    <li><strong>SonarQube</strong> – Static code analysis</li>
+  </ul>
+  <h3>📤 Output:</h3>
+  <ul>
+    <li>Test reports</li>
+    <li>Code coverage metrics</li>
+    <li>Pass/fail status for pipelines</li>
+  </ul>
+  <p><strong>🧠 Bottom Line:</strong><br>Testing is not optional. The earlier you test, the cheaper the fix.</p>
+</details>
+
+<details class="section" id="release">
+  <summary><h2>🔹 5. Release</h2></summary>
+  <p><strong>Release:</strong><br>This stage is about final validation and coordination before production deployment.<br><em>It ensures only stable, approved code moves forward.</em></p>
+  <h3>🎯 Goal:</h3>
+  <ul>
+    <li>Tag and version builds</li>
+    <li>Manual/automated approvals</li>
+    <li>Notify stakeholders and teams</li>
+  </ul>
+  <h3>🛠️ Activities:</h3>
+  <ul>
+    <li>Create release notes</li>
+    <li>Approve changes for deployment</li>
+    <li>Coordinate release windows</li>
+  </ul>
+  <h3>🔧 Tools:</h3>
+  <ul>
+    <li><strong>Jenkins / GitHub Actions</strong> – Release automation</li>
+    <li><strong>Git (tags)</strong> – Version control tagging</li>
+    <li><strong>XL Release</strong> – Release orchestration</li>
+  </ul>
+  <h3>📤 Output:</h3>
+  <ul>
+    <li>Approved, versioned release</li>
+    <li>Release documentation</li>
+  </ul>
+  <p><strong>🧠 Bottom Line:</strong><br>Releasing should be a business decision—not a technical bottleneck.</p>
+</details>
+
+<details class="section" id="deploy">
+  <summary><h2>🔹 6. Deploy</h2></summary>
+  <p><strong>Deploy:</strong><br>Automated delivery of code to production or staging environments.<br><em>It should be fast, reliable, and reversible.</em></p>
+  <h3>🎯 Goal:</h3>
+  <ul>
+    <li>Deploy without downtime or surprises</li>
+    <li>Ensure environment consistency</li>
+  </ul>
+  <h3>🛠️ Activities:</h3>
+  <ul>
+    <li>Use CI/CD pipelines for automation</li>
+    <li>Apply deployment strategies (blue-green, canary, rolling)</li>
+    <li>Rollback on failure</li>
+  </ul>
+  <h3>🔧 Tools:</h3>
+  <ul>
+    <li><strong>Docker / Kubernetes</strong> – Containerization and orchestration</li>
+    <li><strong>Ansible / Terraform</strong> – Infrastructure as code</li>
+    <li><strong>AWS CodeDeploy / Azure Pipelines</strong> – Cloud-native deployment tools</li>
+  </ul>
+  <h3>📤 Output:</h3>
+  <ul>
+    <li>Code running in target environment</li>
+    <li>Validated deployments</li>
+  </ul>
+  <p><strong>🧠 Bottom Line:</strong><br>Automated deployments reduce errors and improve delivery confidence.</p>
+</details>
+
+<details class="section" id="operate">
+  <summary><h2>🔹 7. Operate</h2></summary>
+  <p><strong>Operate:</strong><br>Ensure the system runs reliably and efficiently.<br><em>This stage includes system administration, patching, and security.</em></p>
+  <h3>🎯 Goal:</h3>
+  <ul>
+    <li>Maintain uptime and performance</li>
+    <li>Apply updates and patches</li>
+    <li>Respond to incidents quickly</li>
+  </ul>
+  <h3>🛠️ Activities:</h3>
+  <ul>
+    <li>Log analysis</li>
+    <li>Incident management</li>
+    <li>Scaling and resource optimization</li>
+  </ul>
+  <h3>🔧 Tools:</h3>
+  <ul>
+    <li><strong>Terraform / Ansible / Puppet</strong> – Infrastructure automation</li>
+    <li><strong>AWS / Azure / GCP</strong> – Cloud platforms</li>
+  </ul>
+  <h3>📤 Output:</h3>
+  <ul>
+    <li>Stable production systems</li>
+    <li>Operational dashboards</li>
+  </ul>
+  <p><strong>🧠 Bottom Line:</strong><br>DevOps doesn’t end at deployment. Operations ensure users stay happy.</p>
+</details>
+
+<details class="section" id="monitor">
+  <summary><h2>🔹 8. Monitor</h2></summary>
+  <p><strong>Monitor:</strong><br>Observe everything from infrastructure health to user behavior.<br><em>Feedback loops drive improvement.</em></p>
+  <h3>🎯 Goal:</h3>
+  <ul>
+    <li>Gain visibility into system health</li>
+    <li>Proactively detect issues</li>
+    <li>Improve future planning based on real data</li>
+  </ul>
+  <h3>🛠️ Activities:</h3>
+  <ul>
+    <li>Track metrics, logs, and traces</li>
+    <li>Set alerts and dashboards</li>
+    <li>Analyze trends and incidents</li>
+  </ul>
+  <h3>🔧 Tools:</h3>
+  <ul>
+    <li><strong>Prometheus / Grafana</strong> – Metrics monitoring and dashboards</li>
+    <li><strong>ELK Stack</strong> – Log analysis (Elasticsearch, Logstash, Kibana)</li>
+    <li><strong>Datadog / New Relic</strong> – Full-stack observability</li>
+  </ul>
+  <h3>📤 Output:</h3>
+  <ul>
+    <li>Monitoring dashboards</li>
+    <li>Alerts and reports</li>
+    <li>Insights for planning and improvement</li>
+  </ul>
+  <p><strong>🧠 Bottom Line:</strong><br>What gets measured gets improved. Monitoring fuels DevOps agility.</p>
+</details>
+
+  </main>
+</div>
+
+  <footer>
+    © 2025 Pradeep Agarwal | <a href="index.html">Back to Home</a> | Built with ❤️ and GitHub Pages
+  </footer>
