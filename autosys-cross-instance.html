@@ -50,7 +50,7 @@
     </details>
 
     <details class="section">
-      <summary><h2>⚙️ Examples</h2></summary>
+      <summary><h2>⚙️ Examples for cross instance sendevent action</h2></summary>
       <h4>Triggering a job in another instance:</h4>
       <pre><code>sendevent -E FORCE_STARTJOB -I REMOTE_INSTANCE -J remote_job_name</code></pre>
 
@@ -58,6 +58,82 @@
       <pre><code>sendevent -E SET_GLOBAL -G GLOBAL_VAR=success -I REMOTE_INSTANCE</code></pre>
     </details>
 
+    <details class="section">
+      <summary><h2>⚙️ Examples of cross instance configuration</h2></summary>
+      <h4>Instance 1: Which is built with r11.x</h4>
+      <pre><code>
+        /* ----------------- I12 ----------------- */
+        insert_xinst: I12
+        xtype: a
+        xmachine: r12_primary_scheduler,r12_shadow_scheduler
+        xport: 9000
+        xcrypt_type: DEFAULT
+      </code></pre>
+
+      <h4>Instance 2: Which is built with r12.x</h4>
+      <pre><code>
+        /* ----------------- I11 ----------------- */
+        insert_xinst: I11
+        xtype: a
+        xmachine: r11_primary_scheduler,r11_shadow_scheduler
+        xport: 9000
+        xcrypt_type: DEFAULT
+      </code></pre>
+    </details>
+
+    <details class="section">
+      <summary><h2>⚙️ Examples of cross instance job</h2></summary>
+      <h4>Instance 1: Which is built with r11.x</h4>
+      <pre><code>
+        /* ----------------- job_on_I11_scheduler ----------------- */
+        insert_job: job_on_I11_scheduler
+        job_type: CMD
+        command: sleep 30
+        machine: localhost
+        owner: autosys
+        permission:
+        date_conditions: 0
+        alarm_if_fail: 0
+
+        /* ----------------- job_waiting_on_I11_scheduler ----------------- */
+        insert_job: job_waiting_on_I11_scheduler
+        job_type: CMD
+        command: sleep 30
+        machine: localhost
+        owner: atbadmin
+        permission:
+        date_conditions: 0
+        condition: s(job_on_I12_scheduler^I12)
+        alarm_if_fail: 0
+      </code></pre>
+
+      <h4>Instance 2: Which is built with r12.x</h4>
+      <pre><code>
+        /* ----------------- job_on_I12_scheduler ----------------- */
+        insert_job: job_on_I12_scheduler
+        job_type: CMD
+        command: sleep 30
+        machine: localhost
+        owner: autosys
+        permission:
+        date_conditions: 0
+        alarm_if_fail: 0
+        alarm_if_terminated: 0
+
+        /* ----------------- job_waiting_on_I12_scheduler ----------------- */
+        insert_job: job_waiting_on_I12_scheduler
+        job_type: CMD
+        command: sleep 30
+        machine: localhost
+        owner: autosys
+        permission:
+        date_conditions: 0
+        condition: s(job_on_I11_scheduler^I11)
+        alarm_if_fail: 0
+        alarm_if_terminated: 0
+      </code></pre>
+    </details>
+    
     <details class="section">
       <summary><h2>📈 Best Practices</h2></summary>
       <ul>
