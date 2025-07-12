@@ -1,2 +1,104 @@
-<h1>Coming Soon</h1>
-<p>This section will include my tips and notes.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pradeep's Knowledge Hub</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+  <link rel="manifest" href="images/site.webmanifest">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header>
+    <h1>Daily Linux Commands</h1>
+    <p class="subtitle">Commands getting used in day to day life of IT personal working on Linux Environment.</p>
+  </header>
+
+  <!-- Main Content -->
+  <main>
+
+    <div class="section">
+      <h2>📂 File and Directory Commands</h2>
+      <ul>
+        <li><code>ls -l</code> — List files with permissions and sizes</li>
+        <li><code>cd /path/to/dir</code> — Change directory</li>
+        <li><code>mkdir folder</code> — Create a new folder</li>
+        <li><code>rm -rf folder</code> — Delete a folder and contents recursively</li>
+        <li><code>cp file1 file2</code> — Copy file1 to file2</li>
+        <li><code>mv old new</code> — Rename or move a file</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>🔍 Searching & Filtering</h2>
+      <ul>
+        <li><code>grep 'text' file</code> — Search for text in a file</li>
+        <li><code>find . -name "*.sh"</code> — Find all shell scripts recursively</li>
+        <li><code>grep -r 'pattern' ./</code> — Recursive grep from current directory</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>📊 Disk and System Info</h2>
+      <ul>
+        <li><code>df -h</code> — Show disk usage in human-readable format</li>
+        <li><code>du -sh *</code> — Show folder sizes in current directory</li>
+        <li><code>free -m</code> — Show memory usage in MB</li>
+        <li><code>top</code> — Real-time process monitor</li>
+        <li><code>uname -a</code> — Show kernel and system info</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>🛠️ Permissions & Ownership</h2>
+      <ul>
+        <li><code>chmod +x script.sh</code> — Make a script executable</li>
+        <li><code>chown user:group file</code> — Change file owner</li>
+        <li><code>chmod 755 file</code> — Set permissions (rwxr-xr-x)</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>📦 Package Management</h2>
+      <h3>🟢 Debian / Ubuntu (APT)</h3>
+      <ul>
+        <li><code>sudo apt update</code> — Refresh package database</li>
+        <li><code>sudo apt upgrade</code> — Install available updates</li>
+        <li><code>sudo apt install packagename</code> — Install a package</li>
+        <li><code>dpkg -l</code> — List all installed packages</li>
+        <li><code>sudo dpkg -i file.deb</code> — Install a downloaded .deb package</li>
+      </ul>
+      
+      <h3>🔴 RHEL / CentOS / Fedora (RPM/YUM)</h3>
+      <ul>
+        <li><code>sudo yum update</code> — Update all installed packages (RHEL 7 and below)</li>
+        <li><code>sudo dnf update</code> — For newer systems (RHEL 8+ / Fedora)</li>
+        <li><code>sudo yum install packagename</code> — Install a package</li>
+        <li><code>sudo rpm -ivh file.rpm</code> — Install a local .rpm file</li>
+        <li><code>rpm -qa</code> — List all installed RPM packages</li>
+        <li><code>rpm -ql packagename</code> — Show installed files of a package</li>
+      </ul>
+    </div>
+    
+    <div class="section">
+      <h2>⚙️ Process Management</h2>
+      <ul>
+        <li><code>ps aux</code> — List all running processes</li>
+        <li><code>kill -9 PID</code> — Force kill a process by PID</li>
+        <li><code>htop</code> — Interactive process viewer (if installed)</li>
+      </ul>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    © 2025 Pradeep Agarwal | <a href="index.html">Back to Home</a> | Built with ❤️ and GitHub Pages
+  </footer>
+
+</body>
+</html>
