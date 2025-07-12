@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pradeep's Knowledge Hub</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+  <link rel="manifest" href="images/site.webmanifest">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Header Section | AutoSys Cross-Instance Scheduling | For Pradeep's Portal -->
+  <header>
+    <h1>🔄 AutoSys Cross-Instance Scheduling</h1>
+    <p class="subtitle">Coordinating Jobs Across Multiple AutoSys Schedulers</p>
+  </header>
+
+  <main>
+    <details class="section" open>
+      <summary><h2>📌 What is Cross-Instance Scheduling?</h2></summary>
+      <p><strong>Cross-instance scheduling</strong> in AutoSys refers to the capability of triggering or coordinating jobs that exist across different AutoSys instances (schedulers), typically between <em>PROD</em>, <em>DEV</em>, or <em>DR</em> environments.</p>
+      <ul>
+        <li>Used when jobs from one instance depend on jobs in another instance</li>
+        <li>Common in enterprise architectures where business flows span environments</li>
+        <li>Requires shared communication protocols and security configurations</li>
+      </ul>
+    </details>
+
+    <details class="section">
+      <summary><h2>🔗 How It Works</h2></summary>
+      <ul>
+        <li>Uses <code> sendevent -E SET_GLOBAL</code> and <code> sendevent -E FORCE_STARTJOB</code> to interact with remote instances</li>
+        <li>Typically enabled via <strong>Remote AutoSys Instances</strong> setup in configuration</li>
+        <li>Jobs can be linked using <code>condition: global_variable</code> logic</li>
+      </ul>
+      <p><strong>Note:</strong> Requires precise naming and well-defined global event variables.</p>
+    </details>
+
+    <details class="section">
+      <summary><h2>🧩 Configuration Requirements</h2></summary>
+      <ul>
+        <li>Instances must trust each other (via certificates or network rules)</li>
+        <li>Shared ports and connectivity (e.g., TCP/HTTP/HTTPS)</li>
+        <li>Admin access to define cross-instance relationships</li>
+        <li>Remote instance name must be registered via <code>autosys_secure</code> or equivalent</li>
+      </ul>
+    </details>
+
+    <details class="section">
+      <summary><h2>⚙️ Examples</h2></summary>
+      <h4>Triggering a job in another instance:</h4>
+      <pre><code>sendevent -E FORCE_STARTJOB -I REMOTE_INSTANCE -J remote_job_name</code></pre>
+
+      <h4>Setting a global condition:</h4>
+      <pre><code>sendevent -E SET_GLOBAL -G GLOBAL_VAR=success -I REMOTE_INSTANCE</code></pre>
+    </details>
+
+    <details class="section">
+      <summary><h2>📈 Best Practices</h2></summary>
+      <ul>
+        <li>Use meaningful naming conventions for global variables (e.g., <code>PROD_DB_SUCCESS</code>)</li>
+        <li>Implement retry logic for transient failures in communication</li>
+        <li>Monitor global variable events using job status dashboards</li>
+        <li>Avoid over-coupling environments—use APIs or messaging queues if scalability is needed</li>
+      </ul>
+    </details>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    © 2025 Pradeep Agarwal | <a href="index.html">Back to Home</a> | Built with ❤️ and GitHub Pages
+  </footer>
+
+</body>
+</html>
