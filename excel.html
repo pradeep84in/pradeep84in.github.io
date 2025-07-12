@@ -1,2 +1,92 @@
-<h1>Coming Soon</h1>
-<p>This section will include my tips and notes.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pradeep's Knowledge Hub</title>
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+  <link rel="manifest" href="images/site.webmanifest">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Header Section -->
+  <header>
+    <h1>📊 Excel Formulas & Tips</h1>
+    <p class="subtitle">Essential Excel functions, formulas, and time-saving shortcuts</p>
+  </header>
+
+  <main>
+
+    <div class="section">
+      <h2>📌 Basic Formulas</h2>
+      <ul>
+        <li><code>=SUM(A1:A10)</code> — Add values in a range</li>
+        <li><code>=AVERAGE(A1:A10)</code> — Calculate the average</li>
+        <li><code>=COUNT(A1:A10)</code> — Count numeric entries</li>
+        <li><code>=ROUND(A1, 2)</code> — Round to 2 decimal places</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>🔍 Lookup & Reference</h2>
+      <ul>
+        <li><code>=VLOOKUP(lookup_value, table_array, col_index, FALSE)</code> — Vertical lookup</li>
+        <li><code>=HLOOKUP()</code> — Horizontal lookup</li>
+        <li><code>=INDEX()</code> + <code>MATCH()</code> — More flexible lookup combo</li>
+        <li><code>=XLOOKUP()</code> — Modern Excel (replaces VLOOKUP/MATCH)</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>📅 Date & Time</h2>
+      <ul>
+        <li><code>=TODAY()</code> — Current date</li>
+        <li><code>=NOW()</code> — Current date and time</li>
+        <li><code>=DATEDIF(start, end, "D")</code> — Days between two dates</li>
+        <li><code>=TEXT(A1, "dd-mm-yyyy")</code> — Format a date</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>🧠 Logical Functions</h2>
+      <ul>
+        <li><code>=IF(condition, value_if_true, value_if_false)</code></li>
+        <li><code>=IF(AND(A1>10, B1<5), "Yes", "No")</code></li>
+        <li><code>=IFERROR(formula, "Error message")</code></li>
+        <li><code>=SWITCH()</code> — Replace nested IFs (modern Excel)</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>🛠️ Text & Cleaning</h2>
+      <ul>
+        <li><code>=TRIM(A1)</code> — Remove extra spaces</li>
+        <li><code>=LEN(A1)</code> — Character count</li>
+        <li><code>=LEFT(), RIGHT(), MID()</code> — Extract substrings</li>
+        <li><code>=SUBSTITUTE(A1, "old", "new")</code> — Replace text</li>
+        <li><code>=TEXTJOIN(", ", TRUE, A1:A5)</code> — Combine cells with delimiter</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>💡 Tips & Tricks</h2>
+      <ul>
+        <li>Use <strong>Ctrl + Shift + ↓</strong> to select large data ranges</li>
+        <li><strong>Alt + E + S + V</strong> — Paste special → values</li>
+        <li>Apply filters: <strong>Ctrl + Shift + L</strong></li>
+        <li>Convert text to columns: <strong>Data → Text to Columns</strong></li>
+        <li>Use <strong>Conditional Formatting</strong> to highlight data dynamically</li>
+      </ul>
+    </div>
+
+  </main>
+
+  <footer>
+    © 2025 Pradeep Agarwal | <a href="index.html">Back to Home</a> | Built with ❤️ and GitHub Pages
+  </footer>
+
+</body>
+</html>
