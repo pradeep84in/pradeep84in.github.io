@@ -39,16 +39,32 @@
 </head>
 <body>
 
-  <!-- Header Section -->
-  <header>
-    <h1>🚨 AutoSys Exit Codes</h1>
-    <p class="subtitle">Reference list of common AutoSys exit codes and solutions</p>
-  </header>
+  <body>
+    
+    <!-- Header Section -->
+    <header>
+      <h1>🚨 AutoSys Exit Codes Reference</h1>
+      <p class="subtitle">Common AutoSys and OS-level job exit codes with resolutions</p>
+    </header>
 
-  <main>
+    <main>
 
     <div class="section">
-      <h2>📋 Exit Code Reference Table</h2>
+      <h2>📘 About Exit Codes</h2>
+      <p>AutoSys Workload Automation reports exit codes to indicate the success or failure of jobs. A code of <strong>0</strong> typically means success. Non-zero or negative codes point to errors, system issues, or agent problems.</p>
+    </div>
+
+    <div class="section">
+      <h2>🚫 Internal AutoSys Exit Codes</h2>
+      <ul>
+        <li><strong>-655</strong>: Max restart attempts exceeded</li>
+        <li><strong>-656</strong>: Job not yet started or still running</li>
+        <li><strong>-657</strong>: Agent lost track of job processes; use <code>chase -E -A</code> for verification</li>
+      </ul>
+    </div>
+      
+    <div class="section">
+      <h2>📋 Common Exit Codes Reference Table & Fixes</h2>
       <table>
         <thead>
           <tr>
