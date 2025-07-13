@@ -9,71 +9,200 @@
   <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
   <link rel="manifest" href="images/site.webmanifest">
   <link rel="stylesheet" href="style.css">
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+      font-size: 0.95rem;
+    }
+    th, td {
+      padding: 0.6rem;
+      border: 1px solid #ddd;
+      vertical-align: top;
+    }
+    th {
+      background-color: #007acc;
+      color: white;
+      text-align: left;
+    }
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+    code {
+      background: #eee;
+      padding: 2px 4px;
+      border-radius: 4px;
+      font-family: monospace;
+    }
+  </style>
 </head>
 <body>
 
   <!-- Header Section -->
   <header>
-    <h1>📤 AutoSys Exit Codes Reference</h1>
-    <p class="subtitle">Common AutoSys and OS-level job exit codes with resolutions</p>
+    <h1>🚨 AutoSys Exit Codes</h1>
+    <p class="subtitle">Reference list of common AutoSys exit codes and solutions</p>
   </header>
 
   <main>
 
     <div class="section">
-      <h2>📘 About Exit Codes</h2>
-      <p>AutoSys Workload Automation reports exit codes to indicate the success or failure of jobs. A code of <strong>0</strong> typically means success. Non-zero or negative codes point to errors, system issues, or agent problems.</p>
-    </div>
-
-    <div class="section">
-      <h2>🚫 Internal AutoSys Exit Codes</h2>
-      <ul>
-        <li><strong>-655</strong>: Max restart attempts exceeded</li>
-        <li><strong>-656</strong>: Job not yet started or still running</li>
-        <li><strong>-657</strong>: Agent lost track of job processes; use <code>chase -E -A</code> for verification</li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>🧪 Common Exit Codes & Fixes</h2>
-      <ul>
-        <li><strong>0</strong>: Successful execution (Windows & Unix/Linux)</li>
-        <li><strong>1</strong>: General error (e.g. divide by zero), or "unknown function" due to mixed shells; fix <code>oscomponent.defaultshell</code></li>
-        <li><strong>2</strong>: Missing command, shell syntax error, or invalid keyword</li>
-        <li><strong>5</strong>: Access Denied (Windows) — set <code>oscomponent.logon.elevated=true</code></li>
-        <li><strong>7</strong>: Storage control blocks destroyed (Windows error)</li>
-        <li><strong>9</strong>: Job forcibly killed (e.g. TERM_RUN_TIME triggers <code>kill -9</code>)</li>
-        <li><strong>12</strong>: Low memory/swap space or <code>ulimit -u</code> exceeded</li>
-        <li><strong>15</strong>: Job terminated (often due to server reboot)</li>
-        <li><strong>28</strong>: No space left on device — check disk and inode usage</li>
-        <li><strong>126</strong>: Command is not executable or has permission issue</li>
-        <li><strong>127</strong>: Command not found — verify $PATH or command typo</li>
-        <li><strong>128</strong>: Invalid exit argument (must be 0–255)</li>
-        <li><strong>128+n</strong>: Fatal signal “n” (e.g. 137 = kill -9)</li>
-        <li><strong>130</strong>: Script interrupted by Ctrl+C</li>
-        <li><strong>132</strong>: Illegal instruction (AIX SED issue)</li>
-        <li><strong>183</strong>: Logon failed — file already exists</li>
-        <li><strong>1314</strong>: Insufficient privileges — elevate user permissions</li>
-        <li><strong>1326</strong>: Logon failure — bad username/password</li>
-        <li><strong>4014</strong>: Shell mismatch — align shell in script and <code>agentparm.txt</code></li>
-        <li><strong>4030</strong>: Inode exhaustion — run <code>df -i</code> to verify</li>
-        <li><strong>20003</strong>: FILEWATCHER job was killed</li>
-        <li><strong>20004</strong>: Invalid <code>std_in_file</code> or permission denied</li>
-        <li><strong>20005</strong>: Cannot write to <code>std_out_file</code>; folder may not exist</li>
-        <li><strong>20007</strong>: Command file not found — use <code>oscomponent.lookupcommand=true</code></li>
-        <li><strong>FFFFFFFF</strong>: Negative exit code not supported — set <code>oscomponent.cmpc.negative=true</code></li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>🔐 Security-Related Exit Code -655 (AD Binding)</h2>
-      <p>Error -655 can occur due to:</p>
-      <ul>
-        <li>Account not in <code>autosys_secure</code> table</li>
-        <li>AD account locked, disabled, or restricted</li>
-        <li>Password mismatch between AD and <code>autosys_secure</code></li>
-        <li>Account lacks "log on as service/batch" rights on Windows</li>
-      </ul>
+      <h2>📋 Exit Code Reference Table</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Exit Code</th>
+            <th>Meaning</th>
+            <th>Solution / Comments</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>0</td>
+            <td>Success</td>
+            <td>No action needed</td>
+          </tr>
+          <tr>
+            <td>1</td>
+            <td>General error (e.g., divide by zero, unknown function)</td>
+            <td>Check syntax or operations in script</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Shell misuse, missing keyword or command</td>
+            <td>Check shell compatibility and syntax</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>Access Denied (Windows)</td>
+            <td>Add <code>oscomponent.logon.elevated=true</code> to agentparm.txt</td>
+          </tr>
+          <tr>
+            <td>9</td>
+            <td>Job killed due to <code>TERM_RUN_TIME</code></td>
+            <td>Review runtime and rerun if needed</td>
+          </tr>
+          <tr>
+            <td>12</td>
+            <td>Low memory or swap space issue</td>
+            <td>Increase swap, reboot server, raise <code>ulimit -u</code></td>
+          </tr>
+          <tr>
+            <td>15</td>
+            <td>Job terminated (e.g., reboot)</td>
+            <td>Often due to system shutdown or missing drive</td>
+          </tr>
+          <tr>
+            <td>28</td>
+            <td>No space left on device</td>
+            <td>Check disk space and inode usage with <code>df -h</code> and <code>df -i</code></td>
+          </tr>
+          <tr>
+            <td>126</td>
+            <td>Command not executable</td>
+            <td>Check script permissions and file type</td>
+          </tr>
+          <tr>
+            <td>127</td>
+            <td>Command not found</td>
+            <td>Check PATH variable or command typo</td>
+          </tr>
+          <tr>
+            <td>128</td>
+            <td>Invalid argument to <code>exit</code></td>
+            <td>Use only numbers 0–255</td>
+          </tr>
+          <tr>
+            <td>128+n</td>
+            <td>Fatal error signal n (e.g. 137 = kill -9)</td>
+            <td>Check if process was forcefully killed</td>
+          </tr>
+          <tr>
+            <td>130</td>
+            <td>Terminated by Control-C</td>
+            <td>User manually interrupted with Ctrl+C</td>
+          </tr>
+          <tr>
+            <td>132</td>
+            <td>Illegal instruction (AIX SED)</td>
+            <td>Disable Stack Execution Disable (SED) for cybAgent</td>
+          </tr>
+          <tr>
+            <td>183</td>
+            <td>File already exists</td>
+            <td>Use session config params like <code>oscomponent.su.newconsole=true</code></td>
+          </tr>
+          <tr>
+            <td>255</td>
+            <td>Exit status out of range</td>
+            <td>Allow negative exit with <code>oscomponent.cmpc.negative=true</code></td>
+          </tr>
+          <tr>
+            <td>-655</td>
+            <td>Too many restart attempts</td>
+            <td>Check max_restart_count settings</td>
+          </tr>
+          <tr>
+            <td>-656</td>
+            <td>Job not started or in progress</td>
+            <td>Job stuck — may require restart</td>
+          </tr>
+          <tr>
+            <td>-657</td>
+            <td>RUNNING but no job process found</td>
+            <td>Run <code>chase -E -A</code> to verify</td>
+          </tr>
+          <tr>
+            <td>1314</td>
+            <td>Insufficient privileges (Windows)</td>
+            <td>Set <code>oscomponent.logon.elevated=true</code></td>
+          </tr>
+          <tr>
+            <td>1326</td>
+            <td>Logon failure: bad credentials</td>
+            <td>Verify user/password in <code>autosys_secure</code></td>
+          </tr>
+          <tr>
+            <td>4014</td>
+            <td>Shell verification failed</td>
+            <td>Match script shell with valid shell list in <code>agentparm.txt</code></td>
+          </tr>
+          <tr>
+            <td>4030</td>
+            <td>Inode issue on server</td>
+            <td>Use <code>df -i</code> to check inode usage</td>
+          </tr>
+          <tr>
+            <td>20003</td>
+            <td>FILEWATCHER killed via KILLJOB</td>
+            <td>Rerun the job</td>
+          </tr>
+          <tr>
+            <td>20004</td>
+            <td>Error redirecting <code>std_in_file</code></td>
+            <td>Ensure file exists and is accessible</td>
+          </tr>
+          <tr>
+            <td>20005</td>
+            <td>Error redirecting <code>std_out_file</code></td>
+            <td>Check path and write permissions</td>
+          </tr>
+          <tr>
+            <td>20007</td>
+            <td>Command file not found</td>
+            <td>Add:<br/>
+              <code>oscomponent.lookupcommand=true</code><br/>
+              <code>oscomponent.cmdprefix.force=true</code>
+            </td>
+          </tr>
+          <tr>
+            <td>FFFFFFFF</td>
+            <td>Negative exit code</td>
+            <td>Enable <code>oscomponent.cmpc.negative=true</code></td>
+          </tr>
+        </tbody>
+      </table>
     </div>
 
   </main>
