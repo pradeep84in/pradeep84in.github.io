@@ -14,22 +14,116 @@
 
   <!-- Header Section -->
   <header>
-    <h1>How to install Linux on Windows with WSL</h1>
-    <p class="subtitle">Developers can access the power of both Windows and Linux at the same time on a Windows machine. The Windows Subsystem for Linux (WSL) lets developers install a Linux distribution (such as Ubuntu, OpenSUSE, Kali, Debian, Arch Linux, etc) and use Linux applications, utilities, and Bash command-line tools directly on Windows, unmodified, without the overhead of a traditional virtual machine or dualboot setup.</p>
+    <h1>Windows Subsystem for Linux (WSL)</h1>
+    <p class="subtitle">Run Linux distributions on Windows without dual-boot or virtual machines.</p>
   </header>
 
   <main>
 
-    <div class="section">
-      <h2>Prerequisites</h2>
-      <p>You must be running Windows 10 version 2004 and higher (Build 19041 and higher) or Windows 11 to use the commands below.</p>
-    </div>
+  <h2>💻 What is WSL?</h2>
+  <ul>
+    <li>WSL allows running real Linux environments inside Windows.</li>
+    <li>No need for virtual machines — very fast and lightweight.</li>
+    <li>Supports running command-line tools, development environments, and even GUI apps (on Windows 11).</li>
+  </ul>
 
-    <div class="section">
-      <h2>Install WSL command</h2>
-      <p>You can now install everything you need to run WSL with a single command. Open PowerShell in administrator mode by right-clicking and selecting "Run as administrator", enter the wsl --install command, then restart your machine.</p>
-      <code>wsl --install</code>
-    </div>
+  <h2>📋 Prerequisites</h2>
+  <ul>
+    <li>Windows 10 (version 2004, Build 19041 or later) or Windows 11</li>
+    <li>Administrator access to enable features</li>
+    <li>Internet connection to download Linux distributions</li>
+    <li>Ensure hardware virtualization is enabled in BIOS</li>
+  </ul>
+
+  <h2>⚙️ Install WSL</h2>
+  <ol>
+    <li>Open <strong>PowerShell as Administrator</strong></li>
+    <li>Run:
+      <pre>wsl --install</pre>
+    </li>
+    <li>Restart your computer</li>
+    <li>By default, Ubuntu will be installed. You can install others later.</li>
+  </ol>
+
+  <h2>📦 Install Specific Linux Distributions</h2>
+  <ul>
+    <li>View available distributions:
+      <pre>wsl --list --online</pre>
+    </li>
+    <li>Install a specific distribution (example: Debian):
+      <pre>wsl --install -d Debian</pre>
+    </li>
+    <li>List installed distributions:
+      <pre>wsl --list --verbose</pre>
+    </li>
+    <li>Set default distribution:
+      <pre>wsl --set-default Ubuntu</pre>
+    </li>
+  </ul>
+
+  <h2>🚀 Using WSL</h2>
+  <ul>
+    <li>Launch from Start Menu (e.g. "Ubuntu")</li>
+    <li>Or from PowerShell / Command Prompt:
+      <pre>wsl</pre>
+    </li>
+    <li>Access Windows files from WSL:
+      <pre>/mnt/c/Users/YourName</pre>
+    </li>
+    <li>Access WSL files from Windows:
+      <pre>\\wsl$\Ubuntu</pre>
+    </li>
+  </ul>
+
+  <h2>⚖️ WSL 1 vs WSL 2</h2>
+  <ul>
+    <li><strong>WSL 1:</strong> Compatible, faster file access, no real Linux kernel</li>
+    <li><strong>WSL 2:</strong> Real Linux kernel, better performance, supports Docker & GUI apps</li>
+    <li>Check version:
+      <pre>wsl --list --verbose</pre>
+    </li>
+    <li>Set version:
+      <pre>wsl --set-version Ubuntu 2</pre>
+    </li>
+  </ul>
+
+  <h2>🛠 Useful Commands</h2>
+  <ul>
+    <li>Shutdown all running distros:
+      <pre>wsl --shutdown</pre>
+    </li>
+    <li>Upgrade WSL:
+      <pre>wsl --update</pre>
+    </li>
+    <li>Upgrade kernel manually (if needed):
+      <pre>wsl --update --web-download</pre>
+    </li>
+    <li>Unregister a distro:
+      <pre>wsl --unregister DistroName</pre>
+    </li>
+  </ul>
+
+  <h2>🖥 GUI App Support (Windows 11)</h2>
+  <ul>
+    <li>WSL 2 supports GUI Linux apps natively</li>
+    <li>Simply install with your package manager (e.g. apt)</li>
+    <li>Run GUI apps like <code>gedit</code>, <code>firefox</code>, etc. directly from the WSL terminal</li>
+  </ul>
+
+  <h2>⚡ Best Practices</h2>
+  <ul>
+    <li>Store project files inside WSL filesystem (not in <code>/mnt/c</code>) for better performance</li>
+    <li>Use <code>sudo apt update && sudo apt upgrade</code> regularly</li>
+    <li>Back up important files from your Linux home folder</li>
+  </ul>
+
+  <h2>🧯 Troubleshooting</h2>
+  <ul>
+    <li>If <code>wsl</code> command is not found → Update Windows</li>
+    <li>If WSL install stuck → Enable virtualization from BIOS</li>
+    <li>If WSL is slow → Use WSL 2 and keep files inside Linux file system</li>
+    <li>If networking fails → Restart LxssManager service or run <code>wsl --shutdown</code></li>
+  </ul>
 
   </main>
 
