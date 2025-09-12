@@ -10,79 +10,164 @@
   <link rel="manifest" href="images/site.webmanifest">
   <link rel="stylesheet" href="style.css">
 </head>
+  
 <body>
 
   <!-- Header Section -->
   <header>
-    <h1>💻 Shell Scripting Notes</h1>
-    <p class="subtitle">Handy syntax, structures, and real-life script examples</p>
+    <h1>💻 Shell Scripting</h1>
+    <p class="subtitle">Learn the basics of writing and running shell scripts in Linux.</p>
   </header>
 
   <main>
-
     <div class="section">
-      <h2>🔹 Basic Syntax</h2>
+      <h2>📌 Basics</h2>
       <ul>
-        <li><code>#!/bin/bash</code> — Shebang to define the shell interpreter</li>
-        <li><code>#</code> — Single-line comment</li>
-        <li><code>: ' Multi-line comment '</code> — Multi-line comment </li>
-        <li><code>echo "Hello"</code> — Print output</li>
-        <li><code>read name</code> — Accept user input</li>
-        <li><code>$(command)</code> or <code>\`command\`</code> — Command substitution</li>
+        <li>Start scripts with <code>#!/bin/bash</code> (called shebang)</li>
+        <li><code>#</code> is used for single-line comments</li>
+        <li>Multi-line comments can be done using <code>: ' comment block '</code></li>
+        <li><code>echo "Hello"</code> - print output</li>
+        <li><code>read name</code> - take user input</li>
+        <li>Command substitution: <code>$(command)</code> or backticks <code>`command`</code></li>
       </ul>
     </div>
 
     <div class="section">
-      <h2>🔄 Conditionals & Loops</h2>
+      <h2>📦 Variables</h2>
       <ul>
-        <li><code>if [ $a -eq $b ]; then ... fi</code> — Basic if condition</li>
-        <li><code>elif</code> and <code>else</code> — Additional condition checks</li>
-        <li><code>while [ condition ]; do ... done</code> — While loop</li>
-        <li><code>for i in {1..5}; do ... done</code> — For loop</li>
-        <li><code>case $var in ...) esac</code> — Case/switch logic</li>
+        <li><code>name="Pradeep"</code> - create variable</li>
+        <li><code>echo $name</code> - access variable</li>
+        <li>Special variables: 
+          <ul>
+            <li><code>$0</code> - script name</li>
+            <li><code>$1 $2 ...</code> - command-line arguments</li>
+            <li><code>$#</code> - number of arguments</li>
+            <li><code>$@</code> - all arguments</li>
+            <li><code>$?</code> - exit code of last command</li>
+            <li><code>$$</code> - current script PID</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    
+    <div class="section">
+      <h2>⚖️ Conditions</h2>
+      <ul>
+        <li><code>if [ condition ]; then ... fi</code></li>
+        <li><code>if ... elif ... else ... fi</code></li>
+        <li><code>case $var in pattern) ... ;; esac</code></li>
+        <li>Common tests: 
+          <ul>
+            <li><code>-f file</code> - file exists</li>
+            <li><code>-d dir</code> - directory exists</li>
+            <li><code>-e file</code> - file exists (any type)</li>
+            <li><code>-s file</code> - file not empty</li>
+            <li><code>-r/-w/-x file</code> - readable/writable/executable</li>
+            <li><code>-eq/-ne/-gt/-lt/-ge/-le</code> - integer comparisons</li>
+            <li><code>=</code> / <code>!=</code> - string comparison</li>
+          </ul>
+        </li>
       </ul>
     </div>
 
-    <div class="section">
-      <h2>🧠 Variables & Parameters</h2>
+    <div class="Section">
+      <h2>🔁 Loops</h2>
       <ul>
-        <li><code>var=value</code> — Assign variable (no space before/after =)</li>
-        <li><code>$var</code> — Access variable</li>
-        <li><code>$1, $2, ...</code> — Script arguments</li>
-        <li><code>$#</code> — Number of arguments</li>
-        <li><code>$?</code> — Exit status of last command</li>
-      </ul>
+        <li><code>for i in 1 2 3; do ... done</code></li>
+        <li><code>while [ condition ]; do ... done</code></li>
+        <li><code>until [ condition ]; do ... done</code></li>
+        <li><code>break</code> and <code>continue</code> to control loops</li>
+        </ul>
     </div>
 
     <div class="section">
-      <h2>📁 File & Directory Handling</h2>
+      <h2>🧩 Functions</h2>
       <ul>
-        <li><code>[ -f file.txt ]</code> — Check if file exists</li>
-        <li><code>[ -d dir ]</code> — Check if directory exists</li>
-        <li><code>touch, mkdir, rm, mv</code> — File operations</li>
-        <li><code>cat, head, tail, grep</code> — Read/search files</li>
-      </ul>
+        <li>
+          <pre>
+            function greet() {
+            echo "Hello $1"
+            }
+            greet "Pradeep"
+            </pre>
+          </li>
+        <li>Use <code>return</code> to send exit codes (0=success)</li>
+        </ul>
+      </div>
+
+    <div class="section">
+      <h2>📚 Arrays</h2>
+      <ul>
+        <li><code>arr=(one two three)</code></li>
+        <li><code>echo ${arr[0]}</code> - first element</li>
+        <li><code>echo ${arr[@]}</code> - all elements</li>
+        <li><code>for i in "${arr[@]}"; do echo $i; done</code></li>
+        </ul>
     </div>
 
     <div class="section">
-      <h2>🔧 Practical Example</h2>
-<pre><code>#!/bin/bash
-# Single line comment
-echo "Enter a filename:"
-read fname
-
-: ' Multi-line
-  comment'
-if [ -f "$fname" ]; then
-    echo "Contents of $fname:"
-    cat "$fname"
-else
-    echo "$fname does not exist!"
-fi
-</code></pre>
+      <h2>⚡ String Operations</h2>
+      <ul>
+        <li><code>${#str}</code> - length</li>
+        <li><code>${str:0:5}</code> - substring</li>
+        <li><code>${str/old/new}</code> - replace text</li>
+        </ul>
     </div>
 
-  </main>
+    <div class="section">
+      <h2>🚨 Error Handling</h2>
+      <ul>
+        <li>Check exit code: <code>if [ $? -ne 0 ]; then echo "failed"; fi</code></li>
+        <li>Stop on error: <code>set -e</code></li>
+        <li>Debug mode: <code>set -x</code> (shows commands as they run)</li>
+        <li>Use <code>trap</code> to catch errors and cleanup</li>
+        </ul>
+    </div>
+
+    <div class="section">
+      <h2>📝 Input/Output & Redirection</h2>
+      <ul>
+        <li><code>command > file </code> - redirect output</li>
+        <li><code>command >> file </code> - append output</li>
+        <li><code>command < file </code> - input from file</li>
+          <li><code>command 2> errors.txt </code> - redirect errors</li>
+          <li>Pipes: <code>cmd1 | cmd2 </code></li>
+          </ul>
+        </div>
+
+      <div class="section">
+        <h2>⏳ Date and Time</h2>
+        <ul>
+          <li><code>date +"%Y-%m-%d %H:%M:%S"</code> - current date and time</li>
+          <li><code>$(date +%s)</code> - current timestamp</li>
+          </ul>
+      </div>
+
+      <div class="section">
+        <h2>📌 Best Practices</h2>
+        <ul>
+          <li>Always quote variables: <code>"$var"</code> to prevent word splitting</li>
+          <li>Add comments for readability</li>
+          <li>Use meaningful variable and function names</li>
+          <li>Keep scripts executable with <code>chmod +x script.sh</code></li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>💡 Example Script</h2>
+        <pre><code>
+          #!/bin/bash
+          read -p "Enter filename: " file
+          if [ -f "$file" ]; then
+          echo "Content of $file:"
+          cat "$file"
+          else
+          echo "File not found"
+          fi
+        </code></pre>
+      </div>
+
+    </main>
 
   <footer>
     © 2025 Pradeep Agarwal | <a href="index.html">Back to Home</a> | Built with ❤️ and GitHub Pages
