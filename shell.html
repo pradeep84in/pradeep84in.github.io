@@ -25,6 +25,7 @@
       <ul>
         <li><code>#!/bin/bash</code> — Shebang to define the shell interpreter</li>
         <li><code>#</code> — Single-line comment</li>
+        <li><code>'comment'</code> — Multi-line comment </li>
         <li><code>echo "Hello"</code> — Print output</li>
         <li><code>read name</code> — Accept user input</li>
         <li><code>$(command)</code> or <code>\`command\`</code> — Command substitution</li>
@@ -66,9 +67,12 @@
     <div class="section">
       <h2>🔧 Practical Example</h2>
 <pre><code>#!/bin/bash
+# Single line comment
 echo "Enter a filename:"
 read fname
 
+' Multi-line
+  comment'
 if [ -f "$fname" ]; then
     echo "Contents of $fname:"
     cat "$fname"
