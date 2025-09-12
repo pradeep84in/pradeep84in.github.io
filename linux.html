@@ -24,76 +24,125 @@
     <div class="section">
       <h2>📂 File and Directory Commands</h2>
       <ul>
-        <li><code>man</code> — Skim through manual for better understanding</li>
-        <li><code>vi</code> — Available by default and Lightweight editor, but has a steep learning curve. Not a beginner friendly.</li>
-        <li><code>nano</code> — Often available, Simple and intuitive, great for quick edits.</li>
-        <li><code>vim</code> — Not a pre-installed, "Vi Improved" — powerful, customizable, widely used by developers</li>
-        <li><code>ls -l</code> — List files with permissions and sizes, detailed info</li>
-        <li><code>cd /path/to/dir</code> — Change directory</li>
-        <li><code>mkdir folder</code> — Create a new folder</li>
-        <li><code>rm -rf folder</code> — Delete a folder and contents recursively <b>Destructive command</b></li>
-        <li><code>cp file1 file2</code> — Copy file1 to file2</li>
-        <li><code>mv old new</code> — Rename or move a file</li>
+        <li><code>pwd</code> - Print current working directory</li>
+        <li><code>ls -l</code> - List files with permissions and sizes, detailed info</li>
+        <li><code>cd /path/to/dir</code> - Change directory</li>
+        <li><code>mkdir dirname</code> - Create a new directory</li>
+        <li><code>rmdir dirname</code> - Remove empty directory</li>
+        <li><code>rm -rf dirname</code> - Remove directory and contents (⚠️ caution!)</li>
+        <li><code>cp file1 file2</code> - Copy files</li>
+        <li><code>mv file1 file2</code> - Move or rename files</li>
+        <li><code>touch filename</code> - Create empty file</li>
       </ul>
     </div>
 
     <div class="section">
+      <h2>📑 Viewing and Editing Files</h2>
+      <ul>
+        <li><code>cat filename</code> - Show file content</li>
+        <li><code>head -n 10 filename</code> - Show first 10 lines</li>
+        <li><code>tail -n 10 filename</code> - Show last 10 lines</li>
+        <li><code>less filename</code> - View file one page at a time</li>
+        <li><code>nano filename</code> - Simple terminal text editor</li>
+        <li><code>vi filename</code> or <code>vim filename</code> - Advanced text editor</li>
+      </ul
+    </div>
+    
+    <div class="section">
       <h2>🔍 Searching & Filtering</h2>
       <ul>
-        <li><code>grep 'text' file</code> — Search for text in a file</li>
-        <li><code>find . -name "*.sh"</code> — Find all shell scripts recursively</li>
-        <li><code>grep -r 'pattern' ./</code> — Recursive grep from current directory</li>
+        <li><code>grep "text" filename</code> - Search for text in file</li>
+        <li><code>grep -r "text" /path</code> - Recursive search in directories</li>
+        <li><code>find /path -name "file.txt"</code> - Find files by name</li>
+        <li><code>find /path -type f -size +10M</code> - Find large files</li>
+        <li><code>sort filename</code> - Sort file content</li>
+        <li><code>uniq filename</code> - Remove duplicate lines</li>
       </ul>
     </div>
 
     <div class="section">
       <h2>📊 Disk and System Info</h2>
       <ul>
-        <li><code>df -h</code> — Show disk usage in human-readable format</li>
-        <li><code>du -sh *</code> — Show folder sizes in current directory</li>
-        <li><code>free -m</code> — Show memory usage in MB</li>
-        <li><code>top</code> — Real-time process monitor</li>
-        <li><code>uname -a</code> — Show kernel and system info</li>
+        <li><code>df -h</code> - Disk space usage</li>
+        <li><code>du -sh *</code> - Size of each file/folder</li>
+        <li><code>free -h</code> - Memory usage</li>
+        <li><code>uptime</code> - System load and uptime</li>
+        <li><code>uname -a</code> - Kernel and system info</li>
+        <li><code>top</code> or <code>htop</code> - Running processes</li>
+        <li><code>who</code> / <code>w</code> - Logged-in users</li>
       </ul>
     </div>
 
     <div class="section">
       <h2>🛠️ Permissions & Ownership</h2>
       <ul>
-        <li><code>chmod +x script.sh</code> — Make a script executable</li>
-        <li><code>chown user:group file</code> — Change file owner</li>
-        <li><code>chmod 755 file</code> — Set permissions (rwxr-xr-x)</li>
+        <li><code>chmod +x script.sh</code> - Make a script executable</li>
+        <li><code>chown user:group file</code> - Change file owner</li>
+        <li><code>chmod 755 file</code> - Set permissions (rwxr-xr-x)</li>
+        <li><code>umask</code> - View default permissions mask</li>
       </ul>
     </div>
 
     <div class="section">
-      <h2>📦 Package Management</h2>
-      <h3>🟢 Debian / Ubuntu (APT)</h3>
+      <h2>🌐 Network Commands</h2>
       <ul>
-        <li><code>sudo apt update</code> — Refresh package database</li>
-        <li><code>sudo apt upgrade</code> — Install available updates</li>
-        <li><code>sudo apt install packagename</code> — Install a package</li>
-        <li><code>dpkg -l</code> — List all installed packages</li>
-        <li><code>sudo dpkg -i file.deb</code> — Install a downloaded .deb package</li>
+        <li><code>ping google.com</code> - Test connectivity</li>
+        <li><code>curl -I http://example.com</code> - Fetch HTTP headers</li>
+        <li><code>wget http://example.com/file</code> - Download file</li>
+        <li><code>ss -tuln</code> or <code>netstat -tuln</code> - Show listening ports</li>
+        <li><code>ip a</code> - Show network interfaces</li>
+      </ul>
+    </div>
+    
+    <div class="section">
+      <h2>📦 Package Management</h2>
+      <p><strong>Debian / Ubuntu (APT)</strong></p>
+      <ul>
+        <li><code>sudo apt update</code> - Refresh package database</li>
+        <li><code>sudo apt upgrade</code> - Install available updates</li>
+        <li><code>sudo apt install pkg</code> - Install a package</li>
+        <li><code>sudo apt remove pkg</code> - Remove package</li>
+        <li><code>dpkg -l</code> - List all installed packages</li>
+        <li><code>sudo dpkg -i file.deb</code> - Install a downloaded .deb package</li>
       </ul>
       
-      <h3>🔴 RHEL / CentOS / Fedora (RPM/YUM)</h3>
+      <p><strong>RHEL / CentOS / Fedora (YUM / DNF)</strong></p>
       <ul>
-        <li><code>sudo yum update</code> — Update all installed packages (RHEL 7 and below)</li>
-        <li><code>sudo dnf update</code> — For newer systems (RHEL 8+ / Fedora)</li>
-        <li><code>sudo yum install packagename</code> — Install a package</li>
-        <li><code>sudo rpm -ivh file.rpm</code> — Install a local .rpm file</li>
-        <li><code>rpm -qa</code> — List all installed RPM packages</li>
-        <li><code>rpm -ql packagename</code> — Show installed files of a package</li>
+        <li><code>sudo yum update</code> - Update packages</li>
+        <li><code>sudo yum install pkg</code> or <code>sudo dnf install pkg</code> - Install</li>
+        <li><code>sudo yum remove pkg</code> - Remove package</li>
+        <li><code>sudo rpm -ivh file.rpm</code> - Install a local .rpm file</li>
+        <li><code>rpm -qa</code> - List installed packages</li>
+        <li><code>rpm -ql packagename</code> - Show installed files of a package</li>
       </ul>
     </div>
     
     <div class="section">
       <h2>⚙️ Process Management</h2>
       <ul>
-        <li><code>ps aux</code> — List all running processes</li>
-        <li><code>kill -9 PID</code> — Force kill a process by PID</li>
-        <li><code>htop</code> — Interactive process viewer (if installed)</li>
+        <li><code>ps aux</code> - List all running processes</li>
+        <li><code>kill PID</code> - Kill process by PID</li>
+        <li><code>kill -9 PID</code> - Force kill a process by PID</li>
+        <li><code>jobs</code> / <code>bg</code> / <code>fg</code> - Manage background jobs</li>
+        <li><code>htop</code> - Interactive process viewer (if installed)</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>⏲️ Scheduling Jobs</h2>
+      <ul>
+        <li><code>crontab -e</code> - Edit scheduled tasks</li>
+        <li><code>crontab -l</code> - List user cron jobs</li>
+        <li><code>at 10:00</code> - Run command at specific time</li>
+      </ul>
+    </div>
+
+    <div class="section">
+      <h2>💡 Tips</h2>
+      <ul>
+        <li>Use <code>man command</code> to get help on any command.</li>
+        <li>Use <code>--help</code> with most commands for quick reference.</li>
+        <li>Always double-check before using <code>rm -rf</code> or <code>sudo</code>.</li>
       </ul>
     </div>
 
