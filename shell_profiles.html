@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Pradeep's Knowledge Hub</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+  <link rel="manifest" href="images/site.webmanifest">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  
+  <!-- Header Section -->
+  <header>
+    <h1>Pradeep's Knowledge Hub</h1>
+    <p class="subtitle">Curated notes on tech, health, and life — in one place.</p>
+  </header>
+
+<main>
+    <section>
+        <h2>Introduction</h2>
+        <p>Shell profile files are scripts that configure your environment when a shell session starts. Understanding their execution order and purpose is essential for anyone working with UNIX/Linux systems.</p>
+    </section>
+
+    <section>
+        <h2>Shell Types</h2>
+        <ul>
+            <li><strong>Login Shell:</strong> First shell after login (SSH, console, or <code>bash --login</code>).</li>
+            <li><strong>Non-login Interactive Shell:</strong> Terminal opened from GUI or <code>bash</code> without <code>--login</code>.</li>
+            <li><strong>Non-interactive Shell:</strong> Scripts or commands executed without user interaction.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Profile Files Overview</h2>
+        <p>Common profile files include:</p>
+        <ul>
+            <li><code>/etc/profile</code> – System-wide settings for login shells.</li>
+            <li><code>~/.profile</code> – User-specific settings for POSIX shells.</li>
+            <li><code>~/.bash_profile</code> – Bash login shell settings.</li>
+            <li><code>~/.bashrc</code> – Bash interactive non-login shell settings.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Execution Precedence</h2>
+        <p>The order in which files are read depends on the shell type:</p>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Shell Type</th>
+                    <th>Files Read</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Login (bash)</td>
+                    <td><code>/etc/profile</code>, then <code>~/.bash_profile</code> or <code>~/.profile</code></td>
+                </tr>
+                <tr>
+                    <td>Non-login (bash)</td>
+                    <td><code>~/.bashrc</code></td>
+                </tr>
+                <tr>
+                    <td>POSIX sh</td>
+                    <td><code>/etc/profile</code>, <code>~/.profile</code></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section>
+        <h2>Best Practices</h2>
+        <ul>
+            <li>Do not mix shell-specific syntax in generic files like <code>~/.profile</code>.</li>
+            <li>Use <code>~/.bashrc</code> for aliases and interactive settings.</li>
+            <li>Source <code>~/.bashrc</code> from <code>~/.bash_profile</code>:
+                <pre><code>if [ -f ~/.bashrc ]; then
+    . ~/.bashrc
+fi</code></pre>
+            </li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Forcing a Specific Shell</h2>
+        <p>To change your login shell (requires root):</p>
+        <pre><code>sudo chsh -s /bin/bash username</code></pre>
+        <p>Without root, add this to <code>~/.profile</code>:</p>
+        <pre><code>if [ -x /bin/bash ]; then
+    exec /bin/bash
+fi</code></pre>
+    </section>
+
+    <section>
+        <h2>Key Things to Know</h2>
+        <ul>
+            <li>Export environment variables in profile files for persistence.</li>
+            <li>Append to PATH instead of overwriting it.</li>
+            <li>Do not add writable directories to PATH for security.</li>
+            <li>Bash supports advanced features like <code>PROMPT_COMMAND</code> and process substitution.</li>
+        </ul>
+    </section>
+</main>
+
+  <!-- Footer -->
+  <footer>
+    © 2025 Pradeep Agarwal | <a href="index.html">Back to Home</a> | Built with ❤️ and GitHub Pages
+  </footer>
+
+</body>
+</html>
